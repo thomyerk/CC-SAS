@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman&display=swap')
+
+$basic-font: 'Goldman', cursive
+$font-stack: $basic-font, "Lucida Sans Unicode", "Lucida Grande", sans-serif
+$black: #2b3038
+$white: #fffbf7
+$font-size: 2em
+
+@mixin div-coloring($name)
+    div.div-#{$name}
+        //background-color: inspect(#$name)
+        width: 30vw
+        height: 50vh
+        margin: 10px
+        top: 200px
+        left: 200px
+        float:right
+
+body
+    font-family: $font-stack
+    font-size: $font-size
+    color: $white
+
+@include div-coloring(black)
+@include div-coloring(aqua)
+
+
+#background 
+    background: black url(../images/background.png) repeat 5% 5%
+    position: absolute
+    top: 0 
+    left: 0 
+    right: 0 
+    bottom: 0
+    z-index: 100
+
+    -webkit-animation-name: STAR-MOVE
+    -webkit-animation-duration: 200s
+    -webkit-animation-timing-function: linear
+    -webkit-animation-iteration-count: infinite
+
+
+#midground 
+    background: url(../images/midground.png) repeat 20% 20%
+    position: absolute
+    top: 0 
+    left: 0 
+    right: 0 
+    bottom: 0
+    z-index: 200
+
+    -webkit-animation-name: STAR-MOVE
+    -webkit-animation-duration: 150s
+    -webkit-animation-timing-function: linear
+    -webkit-animation-iteration-count: infinite
+
+
+#foreground 
+    background: url(../images/foreground.png) repeat 35% 35%
+    position: absolute
+    top: 0 
+    left: 0 
+    right: 0 
+    bottom: 0
+    z-index: 300
+
+    -webkit-animation-name: STAR-MOVE
+    -webkit-animation-duration: 100s
+    -webkit-animation-timing-function: linear
+    -webkit-animation-iteration-count: infinite
+
+#page-wrap 
+    width: 720px
+    margin: 0 auto
+    position: relative
+    z-index: 300
+    background: rgba(0,0,0,0.7)
+    overflow: hidden
+    padding: 30px 50px
+
+@-webkit-keyframes STAR-MOVE 
+    from 
+        left: 0
+        top: 0
+    to  
+        left: -10000px
+        top: -2000px
+
+
