@@ -6,14 +6,6 @@ body {
   margin: 0;
 }
 
-div.div-black {
-  width: 30vw;
-  height: 50vh;
-  margin: 10px;
-  top: 200px;
-  left: 200px;
-}
-
 #background {
   background: url("../images/background.png") repeat 5% 5%;
   position: absolute;
@@ -56,28 +48,28 @@ div.div-black {
   -webkit-animation-iteration-count: infinite;
 }
 
+.space {
+  text-decoration: underline;
+}
+
 #nav-container {
   background: rgba(0, 0, 0, 0.7);
   z-index: 500;
   display: flex;
   padding: 20px;
-  width: 100%;
+  width: 100% -padding;
   position: sticky;
   justify-content: space-between;
+  align-items: center;
+  min-width: 350px;
 }
 
 #sidebar {
-  background: rgba(0, 0, 0, 0.7);
+  grid-area: sidebar;
+  background: #fffbf7;
   color: #fffbf7;
-}
-#page-wrap {
-  width: 720px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 500;
-  background: rgba(0, 0, 0, 0.7);
-  overflow: hidden;
-  padding: 30px 50px;
+  margin-right: 40px;
+  border: unset;
 }
 
 @-webkit-keyframes STAR-MOVE {
@@ -88,6 +80,84 @@ div.div-black {
   to {
     left: -10000px;
     top: -2000px;
+  }
+}
+#page-wrap {
+  width: 80vw;
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  padding: 30px 50px;
+  min-height: 600px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.divider {
+  background-color: #fffbf7;
+  color: #2b3038;
+  width: 100%;
+  max-height: 1.3em;
+}
+
+.card {
+  width: 30%;
+  text-align: center;
+}
+
+.blinking-cursor {
+  font-weight: 100;
+  font-size: 30px;
+  color: #2E3D48;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+@-moz-keyframes blink {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+@-webkit-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+@-ms-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+@-o-keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
   }
 }
 
