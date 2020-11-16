@@ -3,6 +3,7 @@ body {
   font-family: "Goldman", cursive, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size: 2em;
   color: #fffbf7;
+  margin: 0;
 }
 
 div.div-black {
@@ -12,15 +13,9 @@ div.div-black {
   top: 200px;
   left: 200px;
 }
-div.div-aqua {
-  width: 30vw;
-  height: 50vh;
-  margin: 10px;
-  top: 200px;
-  left: 200px;
-}
+
 #background {
-  background: black url(../images/background.png) repeat 5% 5%;
+  background: url("../images/background.png") repeat 5% 5%;
   position: absolute;
   top: 0;
   left: 0;
@@ -34,7 +29,7 @@ div.div-aqua {
 }
 
 #midground {
-  background: url(../images/midground.png) repeat 20% 20%;
+  background: url("../images/midground.png") repeat 20% 20%;
   position: absolute;
   top: 0;
   left: 0;
@@ -48,7 +43,7 @@ div.div-aqua {
 }
 
 #foreground {
-  background: url(../images/foreground.png) repeat 35% 35%;
+  background: url("../images/foreground.png") repeat 35% 35%;
   position: absolute;
   top: 0;
   left: 0;
@@ -61,11 +56,21 @@ div.div-aqua {
   -webkit-animation-iteration-count: infinite;
 }
 
+#nav-container {
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 500;
+  display: flex;
+  padding: 20px;
+  width: 100vw;
+  position: sticky;
+  justify-content: space-between;
+}
+
 #page-wrap {
   width: 720px;
   margin: 0 auto;
   position: relative;
-  z-index: 300;
+  z-index: 500;
   background: rgba(0, 0, 0, 0.7);
   overflow: hidden;
   padding: 30px 50px;

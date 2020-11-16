@@ -14,66 +14,54 @@ $font-size: 2em
         margin: 10px
         top: 200px
         left: 200px
-        float:right
+
+@mixin background($name, $duration,$z-index, $repeat)
+    background: url('../images/'+$name+'.png') repeat $repeat $repeat
+    position: absolute
+    top: 0 
+    left: 0 
+    right: 0 
+    bottom: 0
+    z-index: $z-index
+
+    -webkit-animation-name: STAR-MOVE
+    -webkit-animation-duration: $duration
+    -webkit-animation-timing-function: linear
+    -webkit-animation-iteration-count: infinite
+
 
 body
     font-family: $font-stack
     font-size: $font-size
     color: $white
+    margin: 0
 
 @include div-coloring(black)
-@include div-coloring(aqua)
-
 
 #background 
-    background: black url(../images/background.png) repeat 5% 5%
-    position: absolute
-    top: 0 
-    left: 0 
-    right: 0 
-    bottom: 0
-    z-index: 100
-
-    -webkit-animation-name: STAR-MOVE
-    -webkit-animation-duration: 200s
-    -webkit-animation-timing-function: linear
-    -webkit-animation-iteration-count: infinite
-
+    @include background(background, 200s, 100, 5%)
 
 #midground 
-    background: url(../images/midground.png) repeat 20% 20%
-    position: absolute
-    top: 0 
-    left: 0 
-    right: 0 
-    bottom: 0
-    z-index: 200
-
-    -webkit-animation-name: STAR-MOVE
-    -webkit-animation-duration: 150s
-    -webkit-animation-timing-function: linear
-    -webkit-animation-iteration-count: infinite
+    @include background(midground, 150s, 200, 20%)
 
 
 #foreground 
-    background: url(../images/foreground.png) repeat 35% 35%
-    position: absolute
-    top: 0 
-    left: 0 
-    right: 0 
-    bottom: 0
-    z-index: 300
+    @include background(foreground, 100s, 300, 35%)
 
-    -webkit-animation-name: STAR-MOVE
-    -webkit-animation-duration: 100s
-    -webkit-animation-timing-function: linear
-    -webkit-animation-iteration-count: infinite
-
+#nav-container
+    background: rgba(0,0,0,0.7)
+    z-index: 500
+    display: flex
+    padding: 20px
+    width: 100vw
+    position: sticky
+    justify-content: space-between
+    
 #page-wrap 
     width: 720px
     margin: 0 auto
     position: relative
-    z-index: 300
+    z-index: 500
     background: rgba(0,0,0,0.7)
     overflow: hidden
     padding: 30px 50px
