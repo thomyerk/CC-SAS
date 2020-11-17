@@ -10,6 +10,14 @@ $font-size: 2em
         background-color: $white
         color: $black
 
+@-webkit-keyframes STAR-MOVE 
+    from 
+        left: 0
+        top: 0
+    to  
+        left: -10000px
+        top: -2000px
+
 @mixin background($name, $duration,$z-index, $repeat)
     background: url('../images/'+$name+'.png') repeat $repeat $repeat
     position: absolute
@@ -23,11 +31,6 @@ $font-size: 2em
     -webkit-animation-duration: $duration
     -webkit-animation-timing-function: linear
     -webkit-animation-iteration-count: infinite
-
-@mixin prefix($property, $value, $prefixes)
-    @each $prefix in $prefixes
-        -#{$prefix}-#{$property}: $value
-    #{$property}: $value
 
 body
     font-family: $font-stack
@@ -58,21 +61,26 @@ body
     min-width: 350px
     text-align: center
 
-#sidebar
+#sidebar-btn
     grid-area: sidebar
     background: $white
     color: $white
     margin-right: 40px
     border: unset
-    
 
-@-webkit-keyframes STAR-MOVE 
-    from 
-        left: 0
-        top: 0
-    to  
-        left: -10000px
-        top: -2000px
+
+#sidebar-btn :hover
+    cursor: pointer
+    rect:first-child
+        transform: rotate(45deg) translate(20%,-40%)
+        transform: translate(0,100)
+        transition-duration: 0.4s
+    rect:nth-child(2)
+        transform: scale(0.0)
+    rect:last-child
+        transform: rotate(-45deg) translate(-45%,2%)
+        transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1)
+        transition-duration: 0.4s
 
 #page-wrap 
     width: 80vw
@@ -94,11 +102,10 @@ body
     text-align: center
     flex-direction: column
     align-items: center
-
-
-.card > img
-    max-width: 200px
-
+    > img
+        max-width: 200px
+        max-height: 280px
+        margin: 20px
 .book
     max-width: 100px
     font-family: $font-stack
@@ -108,23 +115,22 @@ body
 .divider
     @include inverse()
     width: 100%    
-    max-height: 1.3em
+    max-height: 1.2em
+    padding-left: 20px
 
-.blinking-cursor 
-  font-weight: 100
-  font-size: 30px
-  color: #2E3D48
-  @include prefix(animation , 1s blink step-end infinite , webkit moz ms o)
+@mixin prefix($property, $value, $prefixes)
+    @each $prefix in $prefixes
+        -#{$prefix}-#{$property}: $value
+    #{$property}: $value
 
-// @mixin keyframes($prefixes...)
-//     @for $i from 0 to length($prefixes)
-//         #{nth($prefixes, $i + 1)}
-//             from, to 
-//                 color: transparent
-//             50% 
-//                 color: black
-
-// @include keyframes("keyframes","-moz-keyframes", "-webkit-keyframes","-ms-keyframes","-o-keyframes" )
+@mixin keyframes($prefixes...)
+    @each $value in $prefixes
+        @#{$value}-keyframes "blink"
+            from, to
+                color: transparent
+            50% 
+                color: black
+@include keyframes("-moz", "-webkit","-ms","-o" )
 
 @keyframes "blink" 
     from, to
@@ -132,26 +138,21 @@ body
     50% 
         color: black
 
-@-moz-keyframes "blink"
-    from, to
-        color: transparent
-    50% 
-        color: black
+.blinking-cursor 
+  font-weight: 100
+  font-size: 30px
+  color: #2E3D48
+  @include prefix(animation , 1s blink step-end infinite , webkit moz ms o)
 
-@-webkit-keyframes "blink" 
-    from, to
-        color: transparent
-    50% 
-        color: black
-
-@-ms-keyframes "blink" 
-    from, to
-        color: transparent
-    50% 
-        color: black
-
-@-o-keyframes "blink" 
-    from, to
-        color: transparent
-    50% 
-        color: black
+#footer
+    width: 100%    
+    max-height: 1.2em
+    padding-left: 20px
+    z-index: 600
+    font-size: 0.5em
+    img
+        max-width: 30px
+        filter: invert(1)
+        margin-right: 20px
+    > a:first-child img
+        transform: rotate(-50deg)

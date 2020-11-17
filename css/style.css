@@ -1,4 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Goldman&display=swap");
+@-webkit-keyframes STAR-MOVE {
+  from {
+    left: 0;
+    top: 0;
+  }
+  to {
+    left: -10000px;
+    top: -2000px;
+  }
+}
 body {
   font-family: "Goldman", cursive, "Lucida Sans Unicode", "Lucida Grande", sans-serif;
   font-size: 2em;
@@ -65,7 +75,7 @@ body {
   text-align: center;
 }
 
-#sidebar {
+#sidebar-btn {
   grid-area: sidebar;
   background: white;
   color: white;
@@ -73,16 +83,23 @@ body {
   border: unset;
 }
 
-@-webkit-keyframes STAR-MOVE {
-  from {
-    left: 0;
-    top: 0;
-  }
-  to {
-    left: -10000px;
-    top: -2000px;
-  }
+#sidebar-btn :hover {
+  cursor: pointer;
 }
+#sidebar-btn :hover rect:first-child {
+  transform: rotate(45deg) translate(20%, -40%);
+  transform: translate(0, 100);
+  transition-duration: 0.4s;
+}
+#sidebar-btn :hover rect:nth-child(2) {
+  transform: scale(0);
+}
+#sidebar-btn :hover rect:last-child {
+  transform: rotate(-45deg) translate(-45%, 2%);
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+  transition-duration: 0.4s;
+}
+
 #page-wrap {
   width: 80vw;
   display: flex;
@@ -105,9 +122,10 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
 .card > img {
   max-width: 200px;
+  max-height: 280px;
+  margin: 20px;
 }
 
 .book {
@@ -121,28 +139,10 @@ body {
   background-color: white;
   color: #2b3038;
   width: 100%;
-  max-height: 1.3em;
+  max-height: 1.2em;
+  padding-left: 20px;
 }
 
-.blinking-cursor {
-  font-weight: 100;
-  font-size: 30px;
-  color: #2E3D48;
-  -webkit-animation: 1s blink step-end infinite;
-  -moz-animation: 1s blink step-end infinite;
-  -ms-animation: 1s blink step-end infinite;
-  -o-animation: 1s blink step-end infinite;
-  animation: 1s blink step-end infinite;
-}
-
-@keyframes "blink" {
-  from, to {
-    color: transparent;
-  }
-  50% {
-    color: black;
-  }
-}
 @-moz-keyframes "blink" {
   from, to {
     color: transparent;
@@ -174,6 +174,40 @@ body {
   50% {
     color: black;
   }
+}
+@keyframes "blink" {
+  from, to {
+    color: transparent;
+  }
+  50% {
+    color: black;
+  }
+}
+.blinking-cursor {
+  font-weight: 100;
+  font-size: 30px;
+  color: #2E3D48;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+
+#footer {
+  width: 100%;
+  max-height: 1.2em;
+  padding-left: 20px;
+  z-index: 600;
+  font-size: 0.5em;
+}
+#footer img {
+  max-width: 30px;
+  filter: invert(1);
+  margin-right: 20px;
+}
+#footer > a:first-child img {
+  transform: rotate(-50deg);
 }
 
 /*# sourceMappingURL=style.css.map */
