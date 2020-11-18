@@ -12,7 +12,7 @@
     <div id="nav-container">
         <a href="index.html"><img src="images/wings.svg" alt="wings"></a>
         <span>SAS-SPACE<br>We come in speace.</span>
-        <button id="sidebar-btn">
+        <button id="sidebar-btn" onmouseenter="sidebarOver()" onclick="sidebarClose()">
             <svg viewBox="0 0 100 80" width="40" height="40" id="logo">
                 <rect y="20" width="100" height="10" rx="8"></rect>
                 <rect y="40" width="100" height="10" rx="8"></rect>
@@ -23,7 +23,7 @@
     <div id="background"></div>
     <div id="midground"></div>
     <div id="foreground"></div>
-
+    
     <div id="page-wrap">
         <div class="divider">
             SAS-<span class="space">Space</span> launching stations
@@ -50,6 +50,19 @@
             © Copyright by the United Space Federation of Norse
         </div>
     </div>
+    <div id="sidebar">
+            <a href="index.html"><img src="images/globe-europe-solid.svg" alt="home"></a>
+            <a href="#about"><img src="images/fingerprint-solid.svg" alt="about"></a>
+    </div>
+    <script>
+        var x = document.getElementById("sidebar");
+        function sidebarOver() { 
+            x.style.transform="translate(-200px)";  
+        }
+        function sidebarClose(){
+            x.style.transform="translate(200px)";  
+        }
+    </script>
 </body>
 
 </html>
