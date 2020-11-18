@@ -97,6 +97,7 @@ body {
 #sidebar a {
   filter: invert(1);
   width: 3rem;
+  margin: 10px 0;
 }
 
 #sidebar-btn {
